@@ -1,10 +1,3 @@
-/*
- * The following code is adapted from
- * https://www.appelsiini.net/2011/simple-usart-with-avr-libc
- * and
- * http://nongnu.org/avr-libc/user-manual/group__avr__stdio.html#stdio_without_malloc
- */
-
 // Needed for setbaud.h
 #define F_CPU 16000000UL
 #define BAUD 9600
@@ -33,6 +26,11 @@ void serial_init(void) {
     UCSR0C = _BV(UCSZ01) | _BV(UCSZ00); // 8 bit data
     UCSR0B = _BV(RXEN0) | _BV(TXEN0); // Enable RX and TX
     UCSR0B |= _BV(RXCIE0);
+}
+
+void serial_set(FILE **output, FILE **input) {
+    *output = &serial_out;
+    *input = &serial_in;
 }
 
 static void uart_putchar(char c, FILE *stream) {
