@@ -36,10 +36,15 @@ static uint8_t read(volatile uint8_t *reg, uint8_t pin);
 
 void pin_mode(uint8_t pin, enum mode m) {
     volatile uint8_t *ddr = get_register(DDR, group_for_pin(pin));
+    volatile uint8_t *port = get_register(PORT, group_for_pin(pin));
     if (m == OUTPUT) {
         set(ddr, pin);
+    } else if (m == INPUT){
+        unset(ddr, pin);
+        unset(port, pin);
     } else {
         unset(ddr, pin);
+        set(port, pin);
     }
 }
 

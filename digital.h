@@ -3,7 +3,8 @@
 
 enum mode {
     OUTPUT,
-    INPUT
+    INPUT,
+    INPUT_PULLUP
 };
 
 enum voltage {
