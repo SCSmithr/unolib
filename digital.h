@@ -12,22 +12,6 @@ enum voltage {
     LOW
 };
 
-static const uint8_t MIN_PORTD_PIN = 0;
-static const uint8_t MAX_PORTD_PIN = 7;
-static const uint8_t MIN_PORTB_PIN = 8;
-static const uint8_t MAX_PORTB_PIN = 13;
-
-// Aliases for analog pins.
-#define A0 14
-#define A1 15
-#define A2 16
-#define A3 17
-#define A4 18
-#define A5 19
-
-static const uint8_t MIN_ANALOG_ALIAS = A0;
-static const uint8_t MAX_ANALOG_ALIAS = A5;
-
 /**
  * Sets the pin mode to be input or output.
  * @param pin Pin number
