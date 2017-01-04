@@ -19,6 +19,7 @@ void pin_mode(uint8_t pin, enum mode m) {
         *ddr |= bm;
     } else if (m == INPUT) {
         *ddr &= ~bm;
+        *data &= ~bm;
     } else if (m == INPUT_PULLUP) {
         *ddr &= ~bm;
         *data |= bm;

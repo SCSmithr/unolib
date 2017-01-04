@@ -10,12 +10,26 @@ static const uint8_t A4 = 18;
 static const uint8_t A5 = 19;
 
 static const uint8_t NO_PIN = 22;
-static const uint8_t NO_PORT = 23;
 
 // Indices for accessing the correct registers in the port mapping arrays.
-static const uint8_t PD = 0;
-static const uint8_t PC = 1;
-static const uint8_t PB = 2;
+enum port_index {
+    PD = 0,
+    PC = 1,
+    PB = 2,
+
+    NO_PORT = 11,
+};
+
+enum timer_id {
+    T0A = 0,
+    T0B = 1,
+    T1A = 2,
+    T1B = 3,
+    T2A = 4,
+    T2B = 5,
+
+    NO_PWM = 11,
+};
 
 extern volatile uint8_t* port_to_ddr_mapping[];
 
@@ -37,6 +51,14 @@ uint8_t pin_to_bit_mask(uint8_t pin);
  * @param  pin Pin number as labelled on Arduino board
  * @return     Port index constant
  */
-uint8_t pin_to_port(uint8_t pin);
+enum port_index pin_to_port(uint8_t pin);
+
+/**
+ * Used to identify which timer control register to use for writing an analog
+ * signal.
+ * @param  pin Pin number as labelled on Arduino board
+ * @return     Timer ideitifier
+ */
+enum timer_id pin_to_timer(uint8_t pin);
 
 #endif

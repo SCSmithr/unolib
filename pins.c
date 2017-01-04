@@ -45,8 +45,8 @@ uint8_t pin_to_bit_mask(uint8_t pin) {
     return port_pin;
 }
 
-uint8_t pin_to_port(uint8_t pin) {
-    uint8_t port_alias;
+enum port_index pin_to_port(uint8_t pin) {
+    enum port_index port_alias;
     if (pin >= MIN_PORTD_PIN && pin <= MAX_PORTD_PIN) {
         port_alias = PD;
     } else if (pin >= MIN_PORTB_PIN && pin <= MAX_PORTB_PIN) {
@@ -58,4 +58,32 @@ uint8_t pin_to_port(uint8_t pin) {
     }
 
     return port_alias;
+}
+
+enum timer_id pin_to_timer(uint8_t pin) {
+    enum timer_id timer_alias;
+    switch (pin) {
+        case 3:
+            timer_alias = T2B;
+            break;
+        case 5:
+            timer_alias = T0B;
+            break;
+        case 6:
+            timer_alias = T0A;
+            break;
+        case 9:
+            timer_alias = T1A;
+            break;
+        case 10:
+            timer_alias = T1B;
+            break;
+        case 11:
+            timer_alias = T2A;
+            break;
+        default:
+            timer_alias = NO_PWM;
+    }
+
+    return timer_alias;
 }
