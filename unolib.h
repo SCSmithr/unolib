@@ -6,6 +6,5 @@
 #include "digital.h"
 #include "analog.h"
 #include "serial.h"
-#include "events.h"
 
 #endif
