@@ -21,14 +21,14 @@ enum port_index {
 };
 
 enum timer_id {
-    T0A = 0,
-    T0B = 1,
-    T1A = 2,
-    T1B = 3,
-    T2A = 4,
-    T2B = 5,
+    T0A,
+    T0B,
+    T1A,
+    T1B,
+    T2A,
+    T2B,
 
-    NO_PWM = 11,
+    NO_PWM,
 };
 
 extern volatile uint8_t* port_to_ddr_mapping[];
