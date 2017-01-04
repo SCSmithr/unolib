@@ -6,10 +6,6 @@
 void analog_write(uint8_t pin, uint8_t val) {
     enum timer_id timer = pin_to_timer(pin);
 
-    if (timer == NO_PWM) {
-        return;
-    }
-
     // Phase correct pwm
     switch (timer) {
         case T0A:
@@ -41,6 +37,8 @@ void analog_write(uint8_t pin, uint8_t val) {
             TCCR2A |= _BV(COM2B1) | _BV(WGM20);
             TCCR2B |= _BV(CS20);
             OCR2B = val;
+            break;
+        case NOT_A_TIMER:
             break;
     }
 }

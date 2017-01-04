@@ -82,7 +82,7 @@ enum timer_id pin_to_timer(uint8_t pin) {
             timer_alias = T2A;
             break;
         default:
-            timer_alias = NO_PWM;
+            timer_alias = NOT_A_TIMER;
     }
 
     return timer_alias;

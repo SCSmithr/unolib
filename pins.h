@@ -28,7 +28,7 @@ enum timer_id {
     T2A,
     T2B,
 
-    NO_PWM,
+    NOT_A_TIMER,
 };
 
 extern volatile uint8_t* port_to_ddr_mapping[];
