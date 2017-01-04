@@ -42,3 +42,43 @@ void analog_write(uint8_t pin, uint8_t val) {
             break;
     }
 }
+
+uint16_t analog_read(uint8_t pin) {
+    ADCSRA |= _BV(ADPS2) | _BV(ADPS1) | _BV(ADPS0);
+
+    ADMUX = 0; // Reset which pin is selected
+    ADMUX |= _BV(REFS0); // Reference AVCC
+
+    switch (pin) {
+        case A0:
+            // Nothing needed, ADC0 is default
+            break;
+        case A1:
+            ADMUX |= _BV(MUX0);
+            break;
+        case A2:
+            ADMUX |= _BV(MUX1);
+            break;
+        case A3:
+            ADMUX |= _BV(MUX1) | _BV(MUX0);
+            break;
+        case A4:
+            ADMUX |= _BV(MUX2);
+            break;
+        case A5:
+            ADMUX |= _BV(MUX2) | _BV(MUX0);
+            break;
+    }
+
+    ADCSRA |= _BV(ADIE); // Enable interrupts
+    ADCSRA |= _BV(ADEN); // Enable ADC
+
+    ADCSRA |= _BV(ADSC); // Start analog to digital conversion
+
+    uint8_t low = ADCL;
+    uint8_t high = ADCH;
+
+    uint16_t result = (high << 8) | low;
+
+    return result;
+}

@@ -2,12 +2,14 @@
 #define UNOLIB_PINS_H
 
 // Aliases for analog pins.
-static const uint8_t A0 = 14;
-static const uint8_t A1 = 15;
-static const uint8_t A2 = 16;
-static const uint8_t A3 = 17;
-static const uint8_t A4 = 18;
-static const uint8_t A5 = 19;
+enum analog_alias {
+    A0 = 14,
+    A1 = 15,
+    A2 = 16,
+    A3 = 17,
+    A4 = 18,
+    A5 = 19,
+};
 
 static const uint8_t NO_PIN = 22;
 
