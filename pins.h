@@ -1,6 +1,8 @@
 #ifndef UNOLIB_PINS_H
 #define UNOLIB_PINS_H
 
+#include <inttypes.h>
+
 // Aliases for analog pins.
 enum analog_alias {
     A0 = 14,

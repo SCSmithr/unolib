@@ -6,6 +6,8 @@
 #include <avr/io.h>
 #include <stdio.h>
 
+#include "serial.h"
+
 static void uart_putchar(char c, FILE *stream);
 static char uart_getchar(FILE *stream);
 

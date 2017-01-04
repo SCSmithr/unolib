@@ -1,6 +1,8 @@
 #ifndef UNOLIB_SERIAL_H
 #define UNOLIB_SERIAL_H
 
+#include <stdio.h>
+
 /**
  * Readies the device for serial io.
  */

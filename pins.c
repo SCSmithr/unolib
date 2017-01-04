@@ -1,5 +1,4 @@
 #include <inttypes.h>
-
 #include <avr/io.h>
 
 #include "pins.h"

@@ -1,6 +1,8 @@
 #ifndef UNOLIB_DELAY_H
 #define UNOLIB_DELAY_H
 
+#include <inttypes.h>
+
 /*
  * The delay functions found in util/delay.h expect constants at compile time.
  * The following functions are wrappers that allow a variable number of ms/ us.
