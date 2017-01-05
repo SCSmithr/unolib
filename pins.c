@@ -8,8 +8,8 @@ static const uint8_t MAX_PORTD_PIN = 7;
 static const uint8_t MIN_PORTB_PIN = 8;
 static const uint8_t MAX_PORTB_PIN = 13;
 
-static const uint8_t MIN_ANALOG_ALIAS = 14; // A0
-static const uint8_t MAX_ANALOG_ALIAS = 19; // A5
+static const uint8_t MIN_ANALOG_ALIAS = A0;
+static const uint8_t MAX_ANALOG_ALIAS = A5;
 
 volatile uint8_t* port_to_ddr_mapping[] = {
     &DDRD,
@@ -36,7 +36,7 @@ uint8_t pin_to_bit_mask(uint8_t pin) {
     } else if (pin >= MIN_PORTB_PIN && pin <= MAX_PORTB_PIN) {
         port_pin = _BV(pin - 8);
     } else if (pin >= MIN_ANALOG_ALIAS && pin <= MAX_ANALOG_ALIAS) {
-        port_pin = _BV(pin -14);
+        port_pin = _BV(pin - 14);
     } else {
         port_pin = NO_PIN;
     }
